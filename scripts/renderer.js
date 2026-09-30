@@ -93,12 +93,12 @@ class Renderer {
         this.drawConvexPolygon([p0, p1, p2, p3, p4, p5], [255, 0, 0, 255], framebuffer);
 
         let p01 = {x: 500, y: 500};
-        let p11 = {x: 350, y: 200};
-        let p21 = {x: 450, y: 400};
-        let p31 = {x: 450, y: 300};
-        let p41 = {x: 400, y: 500};
-        let p51 = {x: 550, y: 600};
-        let p61 = {x: 400, y: 500};
+        let p11 = {x: 450, y: 300};
+        let p21 = {x: 450, y: 200};
+        let p31 = {x: 500, y: 100};
+        let p41 = {x: 550, y: 200};
+        let p51 = {x: 550, y: 300};
+        let p61 = {x: 600, y: 500};
         this.drawConvexPolygon([p01, p11, p21, p31, p41, p51, p61], [255, 0, 255, 255], framebuffer);
 
         
@@ -115,8 +115,13 @@ class Renderer {
         // TODO: draw your name!
         //   - variable `this.num_curve_sections` should be used for `num_edges`
         //   - variable `this.show_points` should be used to determine whether or not to render vertices
-        
-        
+        this.drawBezierCurve({x: 125, y: 300}, {x: 50, y: 300}, {x: 50, y: 200}, {x: 125, y: 200}, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
+        this.drawCircle({x: 175, y: 225}, 25, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
+        this.drawBezierCurve({x: 200, y:250}, {x: 200, y:250}, {x:200, y:200}, {x:200, y:200}, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
+        this.drawBezierCurve({x: 225, y:200}, {x: 225, y:250}, {x:225, y:250}, {x:250, y:250}, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
+        this.drawBezierCurve({x: 275, y:200}, {x: 325, y:200}, {x:250, y:250}, {x:300, y:250}, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
+        this.drawCircle({x: 350, y: 225}, 25, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
+        this.drawBezierCurve({x: 400, y:200}, {x: 400, y:268}, {x:450, y:267}, {x:450, y:200}, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
     }
 
     // p0:           object {x: __, y: __}
