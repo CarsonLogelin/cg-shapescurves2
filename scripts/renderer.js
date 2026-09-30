@@ -52,11 +52,21 @@ class Renderer {
         // TODO: draw at least 2 Bezier curves
         //   - variable `this.num_curve_sections` should be used for `num_edges`
         //   - variable `this.show_points` should be used to determine whether or not to render vertices
-        
+        let p0 = {x: 100, y: 300};
+        let p1 = {x: 150, y: 200};
+        let p2 = {x: 550, y: 420};
+        let p3 = {x: 600, y: 300};
+        this.drawBezierCurve(p0, p1, p2, p3, this.num_curve_sections, [255, 0, 0, 255], framebuffer);
+
+        let p4 = {x: 50, y: 500};
+        let p5 = {x: 300, y: 700};
+        let p6 = {x: 500, y: 100};
+        let p7 = {x: 750, y: 500};
+        this.drawBezierCurve(p4, p5, p6, p7, this.num_curve_sections, [255, 0, 0, 255], framebuffer);
         
         // Following line is example of drawing a single line
         // (this should be removed after you implement the curve)
-        this.drawLine({x: 100, y: 100}, {x: 600, y: 300}, [255, 0, 0, 255], framebuffer);
+        //this.drawLine({x: 100, y: 100}, {x: 600, y: 300}, [255, 0, 0, 255], framebuffer);
     }
 
     // framebuffer:  canvas ctx image data
@@ -100,6 +110,16 @@ class Renderer {
     // framebuffer:  canvas ctx image data
     drawBezierCurve(p0, p1, p2, p3, num_edges, color, framebuffer) {
         // TODO: draw a sequence of straight lines to approximate a Bezier curve
+        let oldPoint = p0;
+        let newPoint = {};
+        for(let i = 1; i <= num_edges; i++){
+            let t = i/num_edges;
+            let newX = Math.round((((1-t)**3)*p0.x) + (3*((1-t)**2)*t*p1.x) + (3*(1-t)*(t**2)*p2.x) + (t**3)*p3.x);
+            let newY = Math.round((((1-t)**3)*p0.y) + (3*((1-t)**2)*t*p1.y) + (3*(1-t)*(t**2)*p2.y) + (t**3)*p3.y);
+            newPoint = {x: newX, y: newY};
+            this.drawLine(oldPoint, newPoint, color, framebuffer);
+            oldPoint = newPoint;
+        }
         
         
     }
