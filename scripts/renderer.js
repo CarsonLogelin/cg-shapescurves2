@@ -129,6 +129,8 @@ class Renderer {
         this.drawBezierCurve({x: 275, y:200}, {x: 325, y:200}, {x:250, y:250}, {x:300, y:250}, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
         this.drawCircle({x: 350, y: 225}, 25, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
         this.drawBezierCurve({x: 400, y:200}, {x: 400, y:268}, {x:450, y:267}, {x:450, y:200}, this.num_curve_sections, [0, 0, 0, 255], framebuffer);
+        this.drawConvexPolygon([{x: 475, y:300}, {x: 475, y: 215}, {x: 485, y: 215}, {x: 485, y: 300}], [0, 0, 0, 255], framebuffer);
+        this.drawConvexPolygon([{x: 475, y:210}, {x: 475, y: 200}, {x: 485, y: 200}, {x: 485, y: 210}], [0, 0, 0, 255], framebuffer);
     }
 
     // p0:           object {x: __, y: __}
