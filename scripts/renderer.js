@@ -92,14 +92,21 @@ class Renderer {
         let p5 = {x: 300, y: 300};
         this.drawConvexPolygon([p0, p1, p2, p3, p4, p5], [255, 0, 0, 255], framebuffer);
 
+        // let p01 = {x: 500, y: 500};
+        // let p11 = {x: 450, y: 300};
+        // let p21 = {x: 450, y: 200};
+        // let p31 = {x: 500, y: 100};
+        // let p41 = {x: 550, y: 200};
+        // let p51 = {x: 550, y: 300};
+        // let p61 = {x: 600, y: 500};
         let p01 = {x: 500, y: 500};
         let p11 = {x: 450, y: 300};
         let p21 = {x: 450, y: 200};
-        let p31 = {x: 500, y: 100};
-        let p41 = {x: 550, y: 200};
-        let p51 = {x: 550, y: 300};
-        let p61 = {x: 600, y: 500};
-        this.drawConvexPolygon([p01, p11, p21, p31, p41, p51, p61], [255, 0, 255, 255], framebuffer);
+        let p31 = {x: 475, y: 100};
+        let p41 = {x: 525, y: 100};
+        let p51 = {x: 550, y: 200};
+        let p61 = {x: 550, y: 300};
+        this.drawConvexPolygon([p01, p11, p21, p31, p41, p51, p61], [255, 0, 255, 150], framebuffer);
 
         
         // Following lines are example of drawing a single triangle
