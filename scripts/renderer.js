@@ -135,16 +135,19 @@ class Renderer {
         // TODO: draw a sequence of straight lines to approximate a Bezier curve
         let oldPoint = p0;
         let newPoint = {};
+        if(this.show_points){
+            this.drawVertex(oldPoint, color, framebuffer);
+        }
         for(let i = 1; i <= num_edges; i++){
-            if(this.show_points){
-                this.drawVertex(oldPoint, color, framebuffer);
-            }
             let t = i/num_edges;
             let newX = Math.round((((1-t)**3)*p0.x) + (3*((1-t)**2)*t*p1.x) + (3*(1-t)*(t**2)*p2.x) + (t**3)*p3.x);
             let newY = Math.round((((1-t)**3)*p0.y) + (3*((1-t)**2)*t*p1.y) + (3*(1-t)*(t**2)*p2.y) + (t**3)*p3.y);
             newPoint = {x: newX, y: newY};
             this.drawLine(oldPoint, newPoint, color, framebuffer);
             oldPoint = newPoint;
+            if(this.show_points){
+                this.drawVertex(newPoint, color, framebuffer);
+            }
         }
         
         
